@@ -1,14 +1,31 @@
 import React from 'react'
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
+import {
+  BrowserRouter,
+  Switch,
+  Route,
+  Link,
+  useHistory,
+} from 'react-router-dom'
 import About from '../components/about'
 import Home from '../components/home'
 import Account from '../components/account'
 
 const Routes = () => {
+  const history = useHistory()
+  console.debug(history)
   return (
     <>
       <BrowserRouter>
         <div>
+          <button onClick={() => history.push('/')}>Home</button>
+          <button onClick={() => history.push('/about')}>About</button>
+          <button onClick={() => history.push('/account')}>Account</button>
+          <button onClick={() => history.push('/account?name=netflix')}>
+            Netflix
+          </button>
+          <button onClick={() => history.push('/account?name=zillow-group')}>
+            Zillow Group
+          </button>
           <ul>
             <li>
               <Link to="/">Home</Link>
