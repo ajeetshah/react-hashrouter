@@ -1,13 +1,13 @@
 import React from 'react'
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
+import { HashRouter, Switch, Route, Link } from 'react-router-dom'
 import About from '../components/about'
 import Home from '../components/home'
-import Account from '../components/account'
+import Person from '../components/person'
 
 const Routes = () => {
   return (
     <>
-      <BrowserRouter>
+      <HashRouter>
         <div>
           <ul>
             <li>
@@ -17,13 +17,13 @@ const Routes = () => {
               <Link to="/about">About</Link>
             </li>
             <li>
-              <Link to="/account">Account</Link>
+              <Link to="/person">Person</Link>
             </li>
             <li>
-              <Link to="/account?name=netflix">Netflix</Link>
+              <Link to="/person?id=1">Person 1</Link>
             </li>
             <li>
-              <Link to="/account?name=zillow-group">Zillow Group</Link>
+              <Link to="/person?id=2">Person 2</Link>
             </li>
           </ul>
 
@@ -36,12 +36,12 @@ const Routes = () => {
             <Route exact path="/about">
               <About />
             </Route>
-            <Route exact path="/account">
-              <Account />
+            <Route exact path="/person">
+              <Person />
             </Route>
           </Switch>
         </div>
-      </BrowserRouter>
+      </HashRouter>
     </>
   )
 }

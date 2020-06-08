@@ -1,16 +1,15 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
 
-function Account() {
+function Person() {
   const location = useLocation()
   const searchParams = new URLSearchParams(location.search)
-  console.debug(searchParams, location)
+  console.debug(searchParams, location.search, window.location.search)
   return (
     <>
-      <div>Account</div>
-      {JSON.stringify(searchParams.get('name'))}
+      <div>Person, id: {searchParams.get('id') ?? 'No ID'}</div>
     </>
   )
 }
 
-export default Account
+export default Person
