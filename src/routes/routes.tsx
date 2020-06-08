@@ -1,14 +1,21 @@
 import React from 'react'
-import { HashRouter, Switch, Route, Link } from 'react-router-dom'
+import { HashRouter, Switch, Route, Link, useHistory } from 'react-router-dom'
 import About from '../components/about'
 import Home from '../components/home'
 import Person from '../components/person'
 
 const Routes = () => {
+  const history = useHistory()
+  console.debug(history)
   return (
     <>
       <HashRouter>
         <div>
+          <button onClick={() => history.push('/')}>Home</button>
+          <button onClick={() => history.push('/about')}>About</button>
+          <button onClick={() => history.push('/person')}>Person</button>
+          <button onClick={() => history.push('/person?id=1')}>Person 1</button>
+          <button onClick={() => history.push('/person?id=2')}>Person 2</button>
           <ul>
             <li>
               <Link to="/">Home</Link>
