@@ -1,5 +1,8 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
+import About from '../components/about'
+import Home from '../components/home'
+import Account from '../components/account'
 
 const Routes = () => {
   return (
@@ -14,7 +17,13 @@ const Routes = () => {
               <Link to="/about">About</Link>
             </li>
             <li>
-              <Link to="/dashboard">Dashboard</Link>
+              <Link to="/account">Account</Link>
+            </li>
+            <li>
+              <Link to="/account?name=netflix">Netflix</Link>
+            </li>
+            <li>
+              <Link to="/account?name=zillow-group">Zillow Group</Link>
             </li>
           </ul>
 
@@ -22,13 +31,13 @@ const Routes = () => {
 
           <Switch>
             <Route exact path="/">
-              <div>Home</div>
+              <Home />
             </Route>
-            <Route path="/about">
-              <div>About</div>
+            <Route exact path="/about">
+              <About />
             </Route>
-            <Route path="/dashboard">
-              <div>Dashboard</div>
+            <Route exact path="/account">
+              <Account />
             </Route>
           </Switch>
         </div>
